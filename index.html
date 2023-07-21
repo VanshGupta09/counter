@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <textarea name="" id="tarea" cols="30" rows="10"></textarea>
+    <p>Word: <span id="word"></span></p>
+    <p>Characters: <span id="char"></span></p>
+
+    <script>
+        let word = document.getElementById("word");
+        let char = document.getElementById("char");
+        let sentence = document.getElementById("tarea");
+        sentence.addEventListener('input', function () {
+            let filteredData = [];
+            let sentence2 = [];
+            let a = 0;
+            let b = 0;
+            let c = 0
+            let data = sentence.value;
+            let noOfWords = data.trim().split(" ");
+            for (i = 0; i < data.length; i++) {
+                if (data[i] != " ") {
+                    filteredData[a] = data[i];
+                    a++;
+                } else {
+                    b++;
+                }
+            }
+            for (i = 0; i < noOfWords.length; i++) {
+                if (noOfWords[i] != "") {
+                    sentence2[c] = noOfWords[i];
+                    c++;
+                }
+            }
+            console.log(sentence2);
+            char.innerHTML = a;
+            word.innerHTML = sentence2.length;
+        })      
+    </script>
+</body>
+
+</html>
